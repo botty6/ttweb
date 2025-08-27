@@ -95,10 +95,10 @@ def show_details(show_id):
         if show.overview:
             # Use first ~155 chars of overview for description, add call to action
             meta_desc_content = show.overview[:155] + "..." if len(show.overview) > 155 else show.overview
-            meta_desc = f"{meta_desc_content} Find details and download link on iBOX TV."
+            meta_desc = f"{meta_desc_content} Find details and download link on RuffgSeries."
         else:
             # Fallback description
-            meta_desc = f"View details and download {show.show_name}{' - ' + show.episode_title if show.episode_title else ''} on iBOX TV."
+            meta_desc = f"View details and download {show.show_name}{' - ' + show.episode_title if show.episode_title else ''} on RuffgSeries."
         # Ensure description length is reasonable (max ~160)
         meta_desc = meta_desc[:160]
 
