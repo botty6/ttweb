@@ -49,7 +49,8 @@
             {% if show.download_link %}
                 <a href="{{ url_for('redirect_to_download', show_id=show.id) }}" class="download-button">Download Now</a>
 
-                {# --- START OF UPDATED ADVERTISEMENT CONTAINER --- #}
+                {# --- START OF DISABLED ADVERTISEMENT CONTAINER --- #}
+                {#
                 <div id="custom-ad-container">
                     <button id="hide-ads-btn" title="Hide ads for this session">Hide Ads &times;</button>
                     
@@ -68,7 +69,8 @@
                         <a href="https://t.me/+m4TxlUvDjWpjOTNk" style="color: #ff8080;" class="custom-ad-link">JOIN NOW</a>
                     </div>
                 </div>
-                {# --- END OF UPDATED ADVERTISEMENT CONTAINER --- #}
+                #}
+                {# --- END OF DISABLED ADVERTISEMENT CONTAINER --- #}
 
             {% else %}
                 <p><em>Download link not available for this item.</em></p>
