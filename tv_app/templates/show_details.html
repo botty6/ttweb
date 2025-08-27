@@ -1,0 +1,82 @@
+{% extends 'base.html' %}
+
+{# --- SEO Change: Use title variable passed from route --- #}
+{% block title %}{{ title }}{% endblock %}
+
+{# --- SEO Change: Use meta_description variable passed from route --- #}
+{% block meta_description %}{{ meta_description }}{% endblock %}
+
+{% block content %}
+<div class="show-details-container">
+    <div class="show-details-banner">
+        <h1>{{ show.show_name }}</h1>
+        {% if show.episode_title %}
+            <p class="episode-title">{{ show.episode_title }}</p>
+        {% endif %}
+    </div>
+
+    <div class="show-details-content">
+        <div class="show-image-container">
+            {% if show.poster_path %}
+                <img src="{{ show.poster_path }}" alt="{{ show.show_name }} Poster" class="show-image" loading="lazy">
+            {% else %}
+                <div class="placeholder-image">No Poster Available</div>
+            {% endif %}
+        </div>
+
+        <div class="show-info">
+            {% if show.overview %}
+                <h2>Overview</h2>
+                <p class="overview">{{ show.overview }}</p>
+            {% endif %}
+
+            {% if show.vote_average %}
+                <p class="rating"><strong>Rating:</strong> {{ "%.1f"|format(show.vote_average) }}/10</p>
+            {% endif %}
+
+            {% if show.genres %}
+                <p class="genres"><strong>Genres:</strong>
+                    {% for genre in show.genres %}
+                        {{ genre.name }}{% if not loop.last %}, {% endif %}
+                    {% endfor %}
+                </p>
+            {% endif %}
+
+            {% if show.year %}
+                <p class="year"><strong>Year:</strong> {{ show.year }}</p>
+            {% endif %}
+
+            {% if show.download_link %}
+                <a href="{{ url_for('redirect_to_download', show_id=show.id) }}" class="download-button">Download Now</a>
+
+                {# --- START OF UPDATED ADVERTISEMENT CONTAINER --- #}
+                <div id="custom-ad-container">
+                    <button id="hide-ads-btn" title="Hide ads for this session">Hide Ads &times;</button>
+                    
+                    {# Netflix Ad Block #}
+                    <div class="custom-ad-tile">
+                        <span class="custom-ad-disclaimer">(AD)</span>
+                        <strong style="color: #ffcc00;">Free Netflix Premium Mod.apk</strong><br>
+                        <a href="https://ycapp.co/infmb" class="custom-ad-link">ANDROID USERS</a> |
+                        <a href="https://tvapk.link/inyc/" class="custom-ad-link">IOS OR PC USERS</a>
+                    </div>
+
+                    {# Adult Content Ad Block with Red Text #}
+                    <div class="custom-ad-tile">
+                        <span class="custom-ad-disclaimer">(AD)</span>
+                        <strong style="color: #ff4d4d;">Click for Adult/Erotic Content</strong><br>
+                        <a href="https://t.me/+m4TxlUvDjWpjOTNk" style="color: #ff8080;" class="custom-ad-link">JOIN NOW</a>
+                    </div>
+                </div>
+                {# --- END OF UPDATED ADVERTISEMENT CONTAINER --- #}
+
+            {% else %}
+                <p><em>Download link not available for this item.</em></p>
+            {% endif %}
+        </div>
+
+        <div class="text-center my-4">
+        </div>
+    </div>
+</div>
+{% endblock %}
