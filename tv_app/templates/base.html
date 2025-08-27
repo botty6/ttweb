@@ -4,10 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     {# --- SEO Change: Updated Title Structure --- #}
-    <title>{% block title %}{% endblock %} | iBOX TV</title> {# Changed suffix to brand name #}
+    <title>{% block title %}{% endblock %} | RuffgSeries</title> {# Changed suffix to brand name #}
 
     {# --- SEO Change: Added Meta Description Block --- #}
-    <meta name="description" content="{% block meta_description %}Find, search, and download your favorite TV shows and series quickly and easily on iBOX TV.{% endblock %}"> {# Default description #}
+    <meta name="description" content="{% block meta_description %}Find, search, and download your favorite TV shows and series quickly and easily on RuffgSeries.{% endblock %}"> {# Default description #}
 
     <script type="text/javascript" src="https://www.termsfeed.com/public/cookie-consent/4.2.0/cookie-consent.js" charset="UTF-8"></script>
     <script type="text/javascript" charset="UTF-8">
@@ -55,7 +55,7 @@
             <div class="nav-links">
                 <a href="{{ url_for('index') }}" class="nav-link"><i class="fas fa-home"></i><span class="link-text">Home</span></a>
                 <a href="{{ url_for('list_shows') }}" class="nav-link"><i class="fas fa-tv"></i><span class="link-text">Shows</span></a>
-                <span class="brand-text"><span class="ibox-text">iBOX</span><span class="tv-text">TV</span></span>
+                <span class="brand-text"><span class="ruffg-text">Ruffg</span><span class="series-text">Series</span></span>
                 <button type="button" class="search-icon-button">
                     <i class="fas fa-search"></i>
                 </button>
@@ -77,7 +77,7 @@
         <div class="container" style="text-align: center; padding: 15px; font-size: 0.9em; color: #ccc;"> {# Basic inline style example #}
             <p>
                 {# Ensure 'now' object is passed to context or handle year differently #}
-                &copy; {% set current_year = now().year %}{{ current_year }} iBOX TV |
+                &copy; {% set current_year = now().year %}{{ current_year }} RuffgSeries |
                 <a href="{{ url_for('privacy_policy') }}" style="color: #ccc;">Privacy Policy</a> |
                 <a href="#" id="open_preferences_center" style="color: #ccc;">Update Cookies Preferences</a>
             </p>
